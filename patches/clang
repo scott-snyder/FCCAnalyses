@@ -1,11 +1,9 @@
 Bottom: e5cdbf3fe3e949120353943512ac12fdf4a4c1b7
 Top:    e5cdbf3fe3e949120353943512ac12fdf4a4c1b7
 Author: sss <sss@karma>
-Date:   2025-10-20 14:22:12 -0400
+Date:   2025-10-20 14:22:49 -0400
 
 Fix clang warnings.
 
- - Missing override keywords.
- - Explicitly declare copy/assignment as defaulted (implicit decls are
-   deprecated).
- - Unused private data members.
+ - Use std::abs to avoid abs() truncating float to int or fabs() promoting
+   int to float.
