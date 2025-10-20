@@ -60,7 +60,7 @@ set(INSTALL_SHARE_DIR "${CMAKE_INSTALL_PREFIX}/share" CACHE PATH
 #--- Declare C++ Standard -----------------------------------------------------
 
 set(CMAKE_CXX_STANDARD 20 CACHE STRING "")
-if(NOT CMAKE_CXX_STANDARD MATCHES "17|20")
+if(NOT CMAKE_CXX_STANDARD MATCHES "17|20|23")
   message(FATAL_ERROR "Unsupported C++ standard: ${CMAKE_CXX_STANDARD}")
 endif()
 message (STATUS "C++ standard: ${CMAKE_CXX_STANDARD}")
