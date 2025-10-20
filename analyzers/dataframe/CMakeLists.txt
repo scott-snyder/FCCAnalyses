@@ -42,8 +42,8 @@ if(NOT WITH_PODIO_DATASOURCE)
   list(FILTER sources EXCLUDE REGEX "TrackSource.cc")
 endif()
 
-message(STATUS "FCCAnalyses headers:\n   ${headers}")
-message(STATUS "FCCAnalyses sources:\n   ${sources}")
+message(STATUS "FCCAnalyses headers:\n--   ${headers}")
+message(STATUS "FCCAnalyses sources:\n--   ${sources}")
 
 message(STATUS "CMAKE_CURRENT_SOURCE_DIR  ${CMAKE_CURRENT_SOURCE_DIR}")
 message(STATUS "CMAKE_INSTALL_INCLUDEDIR  ${CMAKE_INSTALL_INCLUDEDIR}")
