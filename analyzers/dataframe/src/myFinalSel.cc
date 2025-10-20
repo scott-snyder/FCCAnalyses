@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <cmath>
 
 namespace FCCAnalyses{
 
@@ -43,7 +44,7 @@ float get_min(ROOT::VecOps::RVec<float> in,
 
   float min=99999999.;
   for (auto &p:in){
-    if (abs(p-val)<0.000000001)
+    if (std::abs(p-val)<0.000000001)
       continue;
     if (p<min)min=p;
 
@@ -56,7 +57,7 @@ float get_max(ROOT::VecOps::RVec<float> in,
 
   float max=-9999999.;
   for (auto &p:in){
-    if (abs(p-val)<0.000000001)
+    if (std::abs(p-val)<0.000000001)
       continue;
     if (p>max)max=p;
 
@@ -71,7 +72,7 @@ float get_ave(ROOT::VecOps::RVec<float> in,
   float aven=0.;
 
   for (auto &p:in){
-    if (abs(p-val)<0.000000001)
+    if (std::abs(p-val)<0.000000001)
       continue;
 
     ave+=p;

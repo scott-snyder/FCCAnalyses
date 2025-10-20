@@ -1,5 +1,6 @@
 #include "FCCAnalyses/JetClusteringUtils.h"
 #include "TLorentzVector.h"
+#include <cmath>
 
 namespace FCCAnalyses {
 namespace JetClusteringUtils {
@@ -311,7 +312,7 @@ resonanceBuilder::operator()(ROOT::VecOps::RVec<fastjet::PseudoJet> legs) {
   }
   if (result.size() > 1) {
     auto resonancesort = [&](fastjet::PseudoJet i, fastjet::PseudoJet j) {
-      return (abs(m_resonance_mass - i.m()) < abs(m_resonance_mass - j.m()));
+      return (std::abs(m_resonance_mass - i.m()) < std::abs(m_resonance_mass - j.m()));
     };
     std::sort(result.begin(), result.end(), resonancesort);
     ROOT::VecOps::RVec<fastjet::PseudoJet>::const_iterator first =
