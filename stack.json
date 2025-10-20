@@ -1,13 +1,17 @@
 {
   "version": 5,
-  "prev": "8ed0689e19804d47340dcd25672d7c454f220e89",
-  "head": "46afc369f534229f76d00d793808944ccae20bbc",
+  "prev": "868fbec4121229700ca6c8f2a339aa7730553945",
+  "head": "1ba0f87e158c2cd3336bd17e313daec84e6408a3",
   "applied": [
-    "novdt"
+    "novdt",
+    "cmakeverb"
   ],
   "unapplied": [],
   "hidden": [],
   "patches": {
+    "cmakeverb": {
+      "oid": "1ba0f87e158c2cd3336bd17e313daec84e6408a3"
+    },
     "novdt": {
       "oid": "46afc369f534229f76d00d793808944ccae20bbc"
     }
