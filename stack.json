@@ -1,13 +1,12 @@
 {
   "version": 5,
-  "prev": "4713b8ffd35c32aa9840f0511e4ad2687512d830",
-  "head": "1b2307f0030e28825ec9fc3218d485465a625035",
+  "prev": "8a4c99df10a4bce17db5d68a374b2f911cce56a8",
+  "head": "e083bfa50aae2309305371cc6cad217444ec750c",
   "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
-    "clang",
-    "refresh-temp"
+    "clang"
   ],
   "unapplied": [
     "cxx23"
@@ -28,9 +27,6 @@
     },
     "novdt": {
       "oid": "46afc369f534229f76d00d793808944ccae20bbc"
-    },
-    "refresh-temp": {
-      "oid": "1b2307f0030e28825ec9fc3218d485465a625035"
     }
   }
 }
