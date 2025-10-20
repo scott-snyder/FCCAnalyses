@@ -1,5 +1,5 @@
 # workaround for ROOT not properly exporting the VDT includes
-find_package(Vdt)
+#find_package(Vdt)
 
 message(STATUS "includes-------------------------- dataframe edm4hep: ${EDM4HEP_INCLUDE_DIRS}")
 message(STATUS "includes-------------------------- dataframe podio  : ${podio_INCLUDE_DIR}")
