@@ -12,6 +12,7 @@
 #include "FCCAnalyses/ReconstructedParticle2MC.h"
 #include "FCCAnalyses/ReconstructedParticle2Track.h"
 #include "FCCAnalyses/TrackUtils.h"
+#include <cmath>
 
 /* *************************
 //COMMENTS
@@ -817,11 +818,11 @@ namespace FCCAnalyses
 
           if (ct.at(j).tracks_begin < trackdata.size())
           {
-            if (abs(ct.at(j).charge) > 0 and abs(ct.at(j).mass - 0.000510999) < 1.e-05)
+            if (std::abs(ct.at(j).charge) > 0 and std::abs(ct.at(j).mass - 0.000510999) < 1.e-05)
             {
               tmp.push_back(0.000510999);
             }
-            else if (abs(ct.at(j).charge) > 0 and abs(ct.at(j).mass - 0.105658) < 1.e-03)
+            else if (std::abs(ct.at(j).charge) > 0 and std::abs(ct.at(j).mass - 0.105658) < 1.e-03)
             {
               tmp.push_back(0.105658);
             }
@@ -1094,7 +1095,7 @@ namespace FCCAnalyses
         FCCAnalysesJetConstituents ct = jcs.at(i);
         for (int j = 0; j < ct.size(); ++j)
         {
-          if (abs(ct.at(j).charge) > 0 and abs(ct.at(j).mass - 0.000510999) < 1.e-05)
+          if (std::abs(ct.at(j).charge) > 0 and std::abs(ct.at(j).mass - 0.000510999) < 1.e-05)
           {
             is_El.push_back(1.);
           }
@@ -1118,7 +1119,7 @@ namespace FCCAnalyses
         FCCAnalysesJetConstituents ct = jcs.at(i);
         for (int j = 0; j < ct.size(); ++j)
         {
-          if (abs(ct.at(j).charge) > 0 and abs(ct.at(j).mass - 0.105658) < 1.e-03)
+          if (std::abs(ct.at(j).charge) > 0 and std::abs(ct.at(j).mass - 0.105658) < 1.e-03)
           {
             is_Mu.push_back(1.);
           }
@@ -1142,7 +1143,7 @@ namespace FCCAnalyses
         FCCAnalysesJetConstituents ct = jcs.at(i);
         for (int j = 0; j < ct.size(); ++j)
         {
-          if (abs(ct.at(j).charge) > 0 and abs(ct.at(j).mass - 0.13957) < 1.e-03)
+          if (std::abs(ct.at(j).charge) > 0 and std::abs(ct.at(j).mass - 0.13957) < 1.e-03)
           {
             is_ChargedHad.push_back(1.);
           }
