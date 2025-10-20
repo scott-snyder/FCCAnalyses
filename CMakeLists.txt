@@ -5,6 +5,9 @@ project(FCCAnalyses VERSION 0.12.0
                     LANGUAGES CXX
 )
 
+cmake_policy(SET CMP0144 NEW)
+cmake_policy(SET CMP0167 NEW)
+
 #--- RPATH settings -----------------------------------------------------------
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE CACHE BOOL "RPATH USE LINK PATH")
