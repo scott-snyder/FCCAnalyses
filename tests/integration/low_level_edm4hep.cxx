@@ -1,3 +1,7 @@
+#if __GNUC__ >= 15
+# pragma GCC diagnostic ignored "-Wstringop-overread"
+#endif
+
 // ROOT
 #include <ROOT/RDataFrame.hxx>
 #include <ROOT/RLogger.hxx>
@@ -108,3 +112,4 @@ int main(int argc, const char *argv[]) {
 
   return EXIT_SUCCESS;
 }
+
