@@ -1,23 +1,19 @@
 {
   "version": 5,
-  "prev": "09b27b0a9613f1020c694160881ec52fe6ae59e0",
-  "head": "c4ecda6157265fdbfa4ca81e0d2f4eecd3b881c9",
+  "prev": "4a7a16c5a1b9e0b627f2c1201626585e752452d7",
+  "head": "5dfdf7a91ec8f73ab483566f7aee1eb7fcc20599",
   "applied": [
     "novdt",
-    "cmakeverb",
-    "refresh-temp"
+    "cmakeverb"
   ],
   "unapplied": [],
   "hidden": [],
   "patches": {
     "cmakeverb": {
-      "oid": "1ba0f87e158c2cd3336bd17e313daec84e6408a3"
+      "oid": "5dfdf7a91ec8f73ab483566f7aee1eb7fcc20599"
     },
     "novdt": {
       "oid": "46afc369f534229f76d00d793808944ccae20bbc"
-    },
-    "refresh-temp": {
-      "oid": "c4ecda6157265fdbfa4ca81e0d2f4eecd3b881c9"
     }
   }
 }
