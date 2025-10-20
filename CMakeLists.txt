@@ -5,6 +5,9 @@ project(FCCAnalyses VERSION 0.11.0
                     LANGUAGES CXX
 )
 
+cmake_policy(SET CMP0144 NEW)
+cmake_policy(SET CMP0167 NEW)
+
 #--- RPATH settings -----------------------------------------------------------
 
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE CACHE BOOL "RPATH USE LINK PATH")
@@ -55,7 +58,7 @@ set(INSTALL_INCLUDE_DIR include CACHE PATH
 #--- Declare C++ Standard -----------------------------------------------------
 
 set(CMAKE_CXX_STANDARD 20 CACHE STRING "")
-if(NOT CMAKE_CXX_STANDARD MATCHES "17|20")
+if(NOT CMAKE_CXX_STANDARD MATCHES "17|20|23")
   message(FATAL_ERROR "Unsupported C++ standard: ${CMAKE_CXX_STANDARD}")
 endif()
 message (STATUS "C++ standard: ${CMAKE_CXX_STANDARD}")
