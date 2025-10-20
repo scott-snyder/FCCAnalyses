@@ -1,0 +1,6 @@
+Bottom: f1643cd9448efcc47d96c886ed5f606267c5de80
+Top:    f1643cd9448efcc47d96c886ed5f606267c5de80
+Author: sss <sss@karma>
+Date:   2025-10-20 14:53:22 -0400
+
+Suppress bogus gcc15 warning.
