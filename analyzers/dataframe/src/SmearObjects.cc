@@ -3,6 +3,7 @@
 
 // std
 #include <iostream>
+#include <cmath>
 
 // ROOT
 #include "TDecompChol.h"
@@ -532,11 +533,11 @@ SmearedReconstructedParticle::operator()(
 
     // have to manually infer pid of ele/mu from mass because type not stored in
     // reco particles
-    if (abs(reco_part.charge) > 0 and
-        abs(reco_part.mass - 0.000510999) < 1.e-05) {
+    if (std::abs(reco_part.charge) > 0 and
+        std::abs(reco_part.mass - 0.000510999) < 1.e-05) {
       reco_part_type = 11;
-    } else if (abs(reco_part.charge) > 0 and
-               abs(reco_part.mass - 0.105658) < 1.e-03) {
+    } else if (std::abs(reco_part.charge) > 0 and
+               std::abs(reco_part.mass - 0.105658) < 1.e-03) {
       reco_part_type = 13;
     }
 

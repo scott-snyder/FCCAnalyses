@@ -4,6 +4,7 @@
 // Standard library
 #include <cstdlib>
 #include <stdexcept>
+#include <cmath>
 
 // ROOT
 #include <ROOT/RDataFrame.hxx>
@@ -89,7 +90,7 @@ ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData>  sel_eta::operator() (ROO
     auto & p = in[i];
     TLorentzVector tv1;
     tv1.SetXYZM(p.momentum.x, p.momentum.y, p.momentum.z, p.mass);
-    if (abs(tv1.Eta()) < abs(m_min_eta)){
+    if (std::abs(tv1.Eta()) < std::abs(m_min_eta)){
       result.emplace_back(p);
     }
   }
@@ -120,7 +121,7 @@ ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData>  sel_charge::operator() (
   result.reserve(in.size());
   for (size_t i = 0; i < in.size(); ++i) {
     auto & p = in[i];
-    if ((m_abs && abs(in[i].charge)==m_charge) || (m_charge==in[i].charge) ) {
+    if ((m_abs && std::abs(in[i].charge)==m_charge) || (m_charge==in[i].charge) ) {
       result.emplace_back(p);
     }
   }
@@ -153,7 +154,7 @@ ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> resonanceBuilder::operato
     } while (std::next_permutation(v.begin(), v.end()));
   }
   if (result.size() > 1) {
-    auto resonancesort = [&] (edm4hep::ReconstructedParticleData i ,edm4hep::ReconstructedParticleData j) { return (abs( m_resonance_mass -i.mass)<abs(m_resonance_mass-j.mass)); };
+    auto resonancesort = [&] (edm4hep::ReconstructedParticleData i ,edm4hep::ReconstructedParticleData j) { return (std::abs( m_resonance_mass -i.mass)<std::abs(m_resonance_mass-j.mass)); };
     std::sort(result.begin(), result.end(), resonancesort);
     ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData>::const_iterator first = result.begin();
     ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData>::const_iterator last = result.begin() + 1;
@@ -295,8 +296,8 @@ remove(ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> x,
       float px2 = it->momentum.x;
       float py2 = it->momentum.y;
       float pz2 = it->momentum.z;
-      if (abs(mass1 - mass2) < epsilon && abs(px1 - px2) < epsilon &&
-          abs(py1 - py2) < epsilon && abs(pz1 - pz2) < epsilon) {
+      if (std::abs(mass1 - mass2) < epsilon && std::abs(px1 - px2) < epsilon &&
+          std::abs(py1 - py2) < epsilon && std::abs(pz1 - pz2) < epsilon) {
         result.erase(it);
         break;
       }
