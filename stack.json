@@ -1,11 +1,12 @@
 {
   "version": 5,
-  "prev": "31107d89fa1405d39766b845df87f0c4dde3f49d",
-  "head": "763cb483f4c8e605b3182c8b1d076cdd920739b2",
-  "applied": [],
-  "unapplied": [
+  "prev": "c69fc70b381af39938e9236caf8b87bb9dc87e74",
+  "head": "3020c729f7ab0da223416f12f351ad3cce98e685",
+  "applied": [
     "novdt",
-    "cmakeverb",
+    "cmakeverb"
+  ],
+  "unapplied": [
     "cmakewarn",
     "clang",
     "cxx23",
@@ -17,7 +18,7 @@
       "oid": "e083bfa50aae2309305371cc6cad217444ec750c"
     },
     "cmakeverb": {
-      "oid": "5dfdf7a91ec8f73ab483566f7aee1eb7fcc20599"
+      "oid": "3020c729f7ab0da223416f12f351ad3cce98e685"
     },
     "cmakewarn": {
       "oid": "d9d245db9bbab2d54a15b30af2ecfeeefd13b349"
@@ -29,7 +30,7 @@
       "oid": "38338c5dc1d7d672d2296ac6491f206c2664eee3"
     },
     "novdt": {
-      "oid": "46afc369f534229f76d00d793808944ccae20bbc"
+      "oid": "de2ea7b76302f511b8722d6f626070faf1d514d0"
     }
   }
 }
