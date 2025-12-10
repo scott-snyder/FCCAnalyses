@@ -1,11 +1,10 @@
 {
   "version": 5,
-  "prev": "4fdcf234a67481220d96ebc9bac05684097881a5",
-  "head": "ac9e0035e0770acf869890d23bb626d0b0116463",
+  "prev": "eabef4de51db17b01676815870512b71f26c14b4",
+  "head": "86e31da0edf104e46f027615ace885bae9be23db",
   "applied": [
     "novdt",
-    "cmakeverb",
-    "refresh-temp"
+    "cmakeverb"
   ],
   "unapplied": [
     "cmakewarn",
@@ -19,7 +18,7 @@
       "oid": "e083bfa50aae2309305371cc6cad217444ec750c"
     },
     "cmakeverb": {
-      "oid": "3020c729f7ab0da223416f12f351ad3cce98e685"
+      "oid": "86e31da0edf104e46f027615ace885bae9be23db"
     },
     "cmakewarn": {
       "oid": "d9d245db9bbab2d54a15b30af2ecfeeefd13b349"
@@ -32,9 +31,6 @@
     },
     "novdt": {
       "oid": "de2ea7b76302f511b8722d6f626070faf1d514d0"
-    },
-    "refresh-temp": {
-      "oid": "ac9e0035e0770acf869890d23bb626d0b0116463"
     }
   }
 }
