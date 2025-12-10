@@ -42,8 +42,8 @@ if(NOT WITH_PODIO_DATASOURCE)
   list(FILTER sources EXCLUDE REGEX "TrackSource.cc")
 endif()
 
-list(JOIN headers "\n   " headers_str)
-list(JOIN sources "\n   " sources_str)
+list(JOIN headers "\n--   " headers_str)
+list(JOIN sources "\n--   " sources_str)
 message(STATUS "FCCAnalyses headers:\n--   ${headers_str}")
 message(STATUS "FCCAnalyses sources:\n--   ${sources_str}")
 
