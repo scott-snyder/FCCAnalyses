@@ -1,21 +1,20 @@
 {
   "version": 5,
-  "prev": "32af9105b8eee692fe6dc512e5e9e5ccc2e36d28",
-  "head": "5450a4d6fed55ec80571c1838128cb9e399da7e2",
+  "prev": "7cd25d8d978b0c7058d04771662648a14435eb90",
+  "head": "9599473e5de80f5f57c1857baebe7927105b446d",
   "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
     "clang",
     "cxx23",
-    "gcc15",
-    "refresh-temp"
+    "gcc15"
   ],
   "unapplied": [],
   "hidden": [],
   "patches": {
     "clang": {
-      "oid": "2bce5baf1f026fb0cb23107aa8b0437b3bef56e5"
+      "oid": "052c11ea00772ec25f8d7ffaa1bc4d69ef66e08e"
     },
     "cmakeverb": {
       "oid": "c06468b57217e625df552315c5354bfac96b23ba"
@@ -24,16 +23,13 @@
       "oid": "bb3405f2fa3fbea01050e8aab89226b80d8fccd2"
     },
     "cxx23": {
-      "oid": "845ead0f2697d0820fdff026d180c81c91a81150"
+      "oid": "599c33af51ed01f59058fccd7672755dcff97e6b"
     },
     "gcc15": {
-      "oid": "00ede0baebcd56eb98b72634226ba1db75ebbecd"
+      "oid": "9599473e5de80f5f57c1857baebe7927105b446d"
     },
     "novdt": {
       "oid": "de2ea7b76302f511b8722d6f626070faf1d514d0"
-    },
-    "refresh-temp": {
-      "oid": "5450a4d6fed55ec80571c1838128cb9e399da7e2"
     }
   }
 }
