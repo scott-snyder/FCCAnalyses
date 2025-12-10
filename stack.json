@@ -1,39 +1,35 @@
 {
   "version": 5,
-  "prev": "39b86209131b908be9b276d2222ef63d00544574",
-  "head": "88048953d4fc81ae0ed8396e25eb9e8b0cedc638",
+  "prev": "e4ba1bd12f6fef8118c0ecf15e3a9111fbb7b22e",
+  "head": "00ede0baebcd56eb98b72634226ba1db75ebbecd",
   "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
     "clang",
     "cxx23",
-    "gcc15",
-    "refresh-temp"
+    "gcc15"
   ],
   "unapplied": [],
   "hidden": [],
   "patches": {
     "clang": {
-      "oid": "19953de655e4ad7f25ceb39d4124fffe3a042630"
+      "oid": "2bce5baf1f026fb0cb23107aa8b0437b3bef56e5"
     },
     "cmakeverb": {
-      "oid": "86e31da0edf104e46f027615ace885bae9be23db"
+      "oid": "c06468b57217e625df552315c5354bfac96b23ba"
     },
     "cmakewarn": {
-      "oid": "9571e8dfee4ad784c8118d52d8ca6c90422c1d7f"
+      "oid": "bb3405f2fa3fbea01050e8aab89226b80d8fccd2"
     },
     "cxx23": {
-      "oid": "c085e35a89e3d4880d31ee1864bf7ff4e49a9de9"
+      "oid": "845ead0f2697d0820fdff026d180c81c91a81150"
     },
     "gcc15": {
-      "oid": "ec7b4bb18a3dcc20c95242bce5327fc99fc2ebb1"
+      "oid": "00ede0baebcd56eb98b72634226ba1db75ebbecd"
     },
     "novdt": {
       "oid": "de2ea7b76302f511b8722d6f626070faf1d514d0"
-    },
-    "refresh-temp": {
-      "oid": "88048953d4fc81ae0ed8396e25eb9e8b0cedc638"
     }
   }
 }
