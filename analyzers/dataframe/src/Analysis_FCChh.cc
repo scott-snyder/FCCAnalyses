@@ -2,6 +2,7 @@
 // #include "FCCAnalyses/lester_mt2_bisect.h"
 
 #include <iostream>
+#include <cmath>
 
 using namespace AnalysisFCChh;
 
@@ -1191,8 +1192,8 @@ ROOT::VecOps::RVec<RecoParticlePair> AnalysisFCChh::getBestOSPair(
 
   // from Clement's main code: use std::sort on the mass difference
   auto resonancesort = [&](RecoParticlePair i, RecoParticlePair j) {
-    return (abs(Z_mass - i.merged_TLV().M()) <
-            abs(Z_mass - j.merged_TLV().M()));
+    return (std::abs(Z_mass - i.merged_TLV().M()) <
+            std::abs(Z_mass - j.merged_TLV().M()));
   };
   // auto resonancesort = [&] (edm4hep::ReconstructedParticleData i
   // ,edm4hep::ReconstructedParticleData j) { return (abs( Z_mass
@@ -1243,7 +1244,7 @@ ROOT::VecOps::RVec<RecoParticlePair> AnalysisFCChh::getLeadingPair(
 
   // take the combined pT to sort
   auto pTll_sort = [&](RecoParticlePair i, RecoParticlePair j) {
-    return (abs(i.merged_TLV().Pt()) > abs(j.merged_TLV().Pt()));
+    return (std::abs(i.merged_TLV().Pt()) > std::abs(j.merged_TLV().Pt()));
   };
   std::sort(all_pairs.begin(), all_pairs.end(), pTll_sort);
 
@@ -1452,7 +1453,7 @@ ROOT::VecOps::RVec<float> AnalysisFCChh::get_mT(
   vec_pT_met.SetXYZ(MET.momentum.x, MET.momentum.y, 0.);
 
   float mT = sqrt(2. * pT_ll * pT_met *
-                  (1 - cos(abs(vec_pT_ll.DeltaPhi(vec_pT_met)))));
+                  (1 - cos(std::abs(vec_pT_ll.DeltaPhi(vec_pT_met)))));
 
   mT_vector.push_back(mT);
 
@@ -2100,7 +2101,7 @@ ROOT::VecOps::RVec<float> AnalysisFCChh::get_angularDist(
   }
 
   else if (type.Contains("dEta")) {
-    out_vector.push_back(abs(tlv_1.Eta() - tlv_2.Eta()));
+    out_vector.push_back(std::abs(tlv_1.Eta() - tlv_2.Eta()));
   }
 
   else if (type.Contains("dPhi")) {
@@ -2142,7 +2143,7 @@ ROOT::VecOps::RVec<float> AnalysisFCChh::get_angularDist_MET(
   }
 
   else if (type.Contains("dEta")) {
-    out_vector.push_back(abs(tlv_1.Eta() - tlv_2.Eta()));
+    out_vector.push_back(std::abs(tlv_1.Eta() - tlv_2.Eta()));
   }
 
   else if (type.Contains("dPhi")) {
@@ -2183,7 +2184,7 @@ AnalysisFCChh::get_angularDist_pair(ROOT::VecOps::RVec<RecoParticlePair> pairs,
   }
 
   else if (type.Contains("dEta")) {
-    out_vector.push_back(abs(tlv_1.Eta() - tlv_2.Eta()));
+    out_vector.push_back(std::abs(tlv_1.Eta() - tlv_2.Eta()));
   }
 
   else if (type.Contains("dPhi")) {
@@ -2224,7 +2225,7 @@ AnalysisFCChh::get_angularDist_pair(ROOT::VecOps::RVec<MCParticlePair> pairs,
   }
 
   else if (type.Contains("dEta")) {
-    out_vector.push_back(abs(tlv_1.Eta() - tlv_2.Eta()));
+    out_vector.push_back(std::abs(tlv_1.Eta() - tlv_2.Eta()));
   }
 
   else if (type.Contains("dPhi")) {
@@ -3093,12 +3094,12 @@ AnalysisFCChh::find_mc_matched_particle(
         float dR_val_old = reco_part_tlv.DeltaR(getTLV_MC(out_vector.at(0)));
 
         float pT_diff_old =
-            abs(reco_part_tlv.Pt() - getTLV_MC(out_vector.at(0)).Pt());
+            std::abs(reco_part_tlv.Pt() - getTLV_MC(out_vector.at(0)).Pt());
 
         if (dR_val < dR_val_old) {
           out_vector.at(0) = check_mc_part;
 
-          if (pT_diff_old < abs(reco_part_tlv.Pt() - check_mc_part_tlv.Pt())) {
+          if (pT_diff_old < std::abs(reco_part_tlv.Pt() - check_mc_part_tlv.Pt())) {
             std::cout << "Found case where closest in pT is not closest in dR"
                       << std::endl;
           }
@@ -3144,13 +3145,13 @@ AnalysisFCChh::find_reco_matched_particle(
         float dR_val_old = truth_part_tlv.DeltaR(getTLV_reco(out_vector.at(0)));
 
         float pT_diff_old =
-            abs(truth_part_tlv.Pt() - getTLV_reco(out_vector.at(0)).Pt());
+            std::abs(truth_part_tlv.Pt() - getTLV_reco(out_vector.at(0)).Pt());
 
         if (dR_val < dR_val_old) {
           out_vector.at(0) = check_reco_part;
 
           if (pT_diff_old <
-              abs(truth_part_tlv.Pt() - check_reco_part_tlv.Pt())) {
+              std::abs(truth_part_tlv.Pt() - check_reco_part_tlv.Pt())) {
             std::cout << "Found case where closest in pT is not closest in dR"
                       << std::endl;
           }
@@ -3199,13 +3200,13 @@ ROOT::VecOps::RVec<int> AnalysisFCChh::find_reco_matched_index(
         float dR_val_old = truth_part_tlv.DeltaR(getTLV_reco(match_old));
 
         float pT_diff_old =
-            abs(truth_part_tlv.Pt() - getTLV_reco(match_old).Pt());
+            std::abs(truth_part_tlv.Pt() - getTLV_reco(match_old).Pt());
 
         if (dR_val < dR_val_old) {
           out_vector.at(0) = i;
 
           if (pT_diff_old <
-              abs(truth_part_tlv.Pt() - check_reco_part_tlv.Pt())) {
+              std::abs(truth_part_tlv.Pt() - check_reco_part_tlv.Pt())) {
             std::cout << "Found case where closest in pT is not closest in dR"
                       << std::endl;
           }
