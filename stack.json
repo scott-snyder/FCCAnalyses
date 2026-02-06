@@ -1,9 +1,8 @@
 {
   "version": 5,
-  "prev": "f60fb192deca686851b0fed080d5bb2ed90a93e7",
-  "head": "8a2684c8c0dd2f3ee7283a1edbd8e27c3d3b19f1",
-  "applied": [],
-  "unapplied": [
+  "prev": "b1f1909dfae11eccb1be2612810c17e64e3caa32",
+  "head": "6cb7e92c0804a06048712aaabfef8864e81e0ef6",
+  "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
@@ -12,28 +11,29 @@
     "gcc15",
     "cxx26"
   ],
+  "unapplied": [],
   "hidden": [],
   "patches": {
     "clang": {
-      "oid": "052c11ea00772ec25f8d7ffaa1bc4d69ef66e08e"
+      "oid": "fe31aa63ae252142c6002340342921de0593a713"
     },
     "cmakeverb": {
-      "oid": "c06468b57217e625df552315c5354bfac96b23ba"
+      "oid": "53d94de3ac91a322fa28403b6f7e38925a214066"
     },
     "cmakewarn": {
-      "oid": "bb3405f2fa3fbea01050e8aab89226b80d8fccd2"
+      "oid": "6c35f5f4dd3d833e0a7b7fc3d29c5df539d32184"
     },
     "cxx23": {
-      "oid": "599c33af51ed01f59058fccd7672755dcff97e6b"
+      "oid": "47b7f4615b309909635f2e70f3226017b5effdf6"
     },
     "cxx26": {
-      "oid": "45107db72c55348fcd24a514f8b40291e7e3c590"
+      "oid": "6cb7e92c0804a06048712aaabfef8864e81e0ef6"
     },
     "gcc15": {
-      "oid": "9599473e5de80f5f57c1857baebe7927105b446d"
+      "oid": "8ce8d0dacf1a261a0b0f69943c2e88d9df08c5c6"
     },
     "novdt": {
-      "oid": "de2ea7b76302f511b8722d6f626070faf1d514d0"
+      "oid": "accd12e8ffb1975ff01d97fdb0a18081689de7de"
     }
   }
 }
