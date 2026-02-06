@@ -1,0 +1,8 @@
+Bottom: e8cad6d49f9f3b9924bebecc776da7cb8b614348
+Top:    e8cad6d49f9f3b9924bebecc776da7cb8b614348
+Author: sss <sss@karma>
+Date:   2026-02-06 13:21:42 -0500
+
+Missing include file.
+
+Missing #include of unistd.h; needed to declare unix system calls like dup().
