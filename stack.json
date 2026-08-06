@@ -1,20 +1,24 @@
 {
   "version": 5,
-  "prev": "b5e2983849fd39ae835fc730151b0d69681b9c98",
-  "head": "319537dcc430bce72d15e1418be12e8bb2bce1dc",
+  "prev": "c813399d8fda38208d0efc88530c4c462e41c184",
+  "head": "3d19ffe043823449c0a3b912fa7453c00ddb82c6",
   "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
     "clang",
     "gcc15",
-    "include"
+    "include",
+    "clangwrn2"
   ],
   "unapplied": [],
   "hidden": [],
   "patches": {
     "clang": {
       "oid": "91510d1783e9793a8e3b0e4c2c0a8ee084e9550a"
+    },
+    "clangwrn2": {
+      "oid": "3d19ffe043823449c0a3b912fa7453c00ddb82c6"
     },
     "cmakeverb": {
       "oid": "ee00f7fac5d95f430c812c39b9d42ae34d36457f"
