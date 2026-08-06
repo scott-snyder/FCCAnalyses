@@ -17,14 +17,14 @@ get_constituents(const JetClustering::FCCAnalysesJet &jets) {
 
 float get_exclusive_dmerge(const JetClustering::FCCAnalysesJet &in, int n) {
   float d = -1;
-  if (n >= 1 && n <= Nmax_dmerge && in.exclusive_dmerge.size() > n - 1)
+  if (n >= 1 && n <= Nmax_dmerge && static_cast<int>(in.exclusive_dmerge.size()) > n - 1)
     d = in.exclusive_dmerge[n - 1];
   return d;
 }
 
 float get_exclusive_dmerge_max(const JetClustering::FCCAnalysesJet &in, int n) {
   float d = -1;
-  if (n >= 1 && n <= Nmax_dmerge && in.exclusive_dmerge.size() > n - 1)
+  if (n >= 1 && n <= Nmax_dmerge && static_cast<int>(in.exclusive_dmerge.size()) > n - 1)
     d = in.exclusive_dmerge_max[n - 1];
   return d;
 }
@@ -259,7 +259,7 @@ std::vector<float> exclusive_dmerge(fastjet::ClusterSequence &cs,
 }
 
 bool check(unsigned int n, int exclusive, float cut) {
-  if (exclusive > 0 && n < int(cut))
+  if (exclusive > 0 && n < static_cast<unsigned int>(cut))
     return false;
   return true;
 }

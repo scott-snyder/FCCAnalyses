@@ -54,7 +54,7 @@ FASTJET_BEGIN_NAMESPACE  // defined in fastjet/internal/base.hh
     ValenciaPlugin(double R, double beta) : _R(R), _beta(beta), _gamma(beta) {}
 
     /// copy constructor
-    ValenciaPlugin(const ValenciaPlugin &plugin) { *this = plugin; }
+    ValenciaPlugin(const ValenciaPlugin &plugin) = default;
 
     // the things that are required by base class
     virtual std::string description() const;

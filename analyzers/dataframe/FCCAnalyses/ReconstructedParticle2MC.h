@@ -133,7 +133,7 @@ namespace ReconstructedParticle2MC{
 										ROOT::VecOps::RVec<edm4hep::MCParticleData> mc) ;
 
   /// return the index of the MC particle that is associated to a given track (via the track-reco association)
-  int getTrack2MC_index (  int track_index,
+  int getTrack2MC_index (  unsigned track_index,
 			   ROOT::VecOps::RVec<int> recind,
 			   ROOT::VecOps::RVec<int> mcind,
 			   ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> reco);

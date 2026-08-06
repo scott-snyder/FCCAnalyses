@@ -29,13 +29,13 @@ namespace myFinalSel{
 
   float get_min(ROOT::VecOps::RVec<float> in,
 		ROOT::VecOps::RVec<int> ispv,
-		int index);
+		unsigned index);
   float get_max(ROOT::VecOps::RVec<float> in,
 		ROOT::VecOps::RVec<int> ispv,
-		int index);
+		unsigned index);
   float get_ave(ROOT::VecOps::RVec<float> in,
 		ROOT::VecOps::RVec<int> ispv,
-		int index);
+		unsigned index);
 
 }//end NS myFinalSel
 

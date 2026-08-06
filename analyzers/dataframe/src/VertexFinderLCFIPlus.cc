@@ -44,7 +44,7 @@ ROOT::VecOps::RVec<ROOT::VecOps::RVec<VertexingUtils::FCCAnalysesVertex>> get_SV
 
     // remove primary tracks & separate non-primary tracks by jet
     std::vector<int> i_jetconsti = jet_consti[j];
-    for (int ctr=0; ctr<tracks.size(); ctr++) {
+    for (size_t ctr=0; ctr<tracks.size(); ctr++) {
       if(isInPrimary[ctr]) continue; // remove primary tracks
       if(std::find(i_jetconsti.begin(), i_jetconsti.end(), reco_ind_tracks[ctr]) == i_jetconsti.end()) {
 	np_tracks.push_back(tracks[ctr]); // separate tracks by jet
@@ -161,7 +161,7 @@ ROOT::VecOps::RVec<int> VertexSeed_best(ROOT::VecOps::RVec<edm4hep::TrackState> 
   int isel = 0;
   int jsel = 1;
   
-  int nTr = tracks.size();
+  unsigned nTr = tracks.size();
   // push empty tracks to make a size=2 vector
   ROOT::VecOps::RVec<edm4hep::TrackState> tr_pair;
   edm4hep::TrackState tr_i, tr_j;
@@ -213,7 +213,7 @@ ROOT::VecOps::RVec<int> addTrack_best(ROOT::VecOps::RVec<edm4hep::TrackState> tr
   
   int isel = -1;
 
-  int nTr = tracks.size();
+  unsigned nTr = tracks.size();
   ROOT::VecOps::RVec<edm4hep::TrackState> tr_vtx;
   VertexingUtils::FCCAnalysesVertex vtx;
   double chi2_min = 99;
@@ -285,14 +285,14 @@ ROOT::VecOps::RVec<VertexingUtils::FCCAnalysesVertex> findSVfromTracks(ROOT::Vec
     
     if(debug_me){
       std::cout << "tracks_fin.size(): " << tracks_fin.size() << std::endl;
-      for(int i=0; i<vtx_seed.size();i++)
+      for(size_t i=0; i<vtx_seed.size();i++)
 	std::cout << "vtx_seed: " << vtx_seed[i] << std::endl;
     }
     if(vtx_seed.size() == 0) break;
     
     // add tracks to the seed, check if a track is added; if not break loop
     ROOT::VecOps::RVec<int> vtx_fin = vtx_seed;
-    int vtx_fin_size = 0; // to start the loop
+    unsigned vtx_fin_size = 0; // to start the loop
     while(vtx_fin_size != vtx_fin.size()) {
       vtx_fin_size = vtx_fin.size();
       vtx_fin = addTrack_best(tracks_fin, vtx_fin, PV, chi2_cut, invM_cut, chi2Tr_cut);
@@ -374,7 +374,7 @@ ROOT::VecOps::RVec<bool> isV0(ROOT::VecOps::RVec<edm4hep::TrackState> np_tracks,
   // if(tight)  -> tight constraints
   // if(!tight) -> loose constraints
 
-  int nTr = np_tracks.size();
+  unsigned nTr = np_tracks.size();
 
   ROOT::VecOps::RVec<bool> result(nTr, false);
   // true -> forms a V0, false -> doesn't form a V0
@@ -458,7 +458,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s(ROOT::VecOps::RVec<edm4hep::TrackState> np
 
   VertexingUtils::FCCAnalysesVertex V0_vtx;
   
-  int nTr = np_tracks.size();
+  unsigned nTr = np_tracks.size();
   if(nTr<2) return result;
   ROOT::VecOps::RVec<bool> isInV0(nTr, false);
 
@@ -556,7 +556,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s(ROOT::VecOps::RVec<edm4hep::TrackState> np
 
   VertexingUtils::FCCAnalysesVertex V0_vtx;
   
-  int nTr = np_tracks.size();
+  unsigned nTr = np_tracks.size();
   if(nTr<2) return result;
   ROOT::VecOps::RVec<bool> isInV0(nTr, false);
 
@@ -691,7 +691,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
     
     // remove primary tracks & separate non-primary tracks by jet
     std::vector<int> i_jetconsti = jet_consti[j];
-    for (int ctr=0; ctr<tracks.size(); ctr++) {
+    for (size_t ctr=0; ctr<tracks.size(); ctr++) {
       if(isInPrimary[ctr]) continue; // remove primary tracks
       if(std::find(i_jetconsti.begin(), i_jetconsti.end(), reco_ind_tracks[ctr]) == i_jetconsti.end()) {
 	np_tracks.push_back(tracks[ctr]); // separate tracks by jet
@@ -700,7 +700,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
     
     if(debug_me) std::cout<<"primary tracks removed; there are "<<np_tracks.size()<<" non-primary tracks in jet#"<<j+1<<std::endl;
 
-    int nTr = np_tracks.size();
+    unsigned nTr = np_tracks.size();
     if(nTr<2) continue;    
     ROOT::VecOps::RVec<bool> isInV0(nTr, false);
     //
@@ -708,10 +708,10 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
       if(isInV0[i] == true) continue; // don't pair a track if it already forms a V0
       tr_pair[0] = np_tracks[i];
       
-      for(unsigned int j=i+1; j<nTr; j++) {
-	if(isInV0[j] == true) continue; // don't pair a track if it already forms a V0
-	if(tr_pair[0].omega * np_tracks[j].omega > 0) continue; // don't pair tracks with same charge (same sign curvature = same sign charge)
-	tr_pair[1] = np_tracks[j];
+      for(unsigned int jj=i+1; jj<nTr; jj++) {
+	if(isInV0[jj] == true) continue; // don't pair a track if it already forms a V0
+	if(tr_pair[0].omega * np_tracks[jj].omega > 0) continue; // don't pair tracks with same charge (same sign curvature = same sign charge)
+	tr_pair[1] = np_tracks[jj];
 	
 	ROOT::VecOps::RVec<double> V0_cand = get_V0candidate(V0_vtx, tr_pair, PV, true, chi2_cut);
 	if(V0_cand[0] == -1) continue;
@@ -720,7 +720,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
 	if(V0_cand[0]>isKs[0] && V0_cand[0]<isKs[1] && V0_cand[4]>isKs[2] && V0_cand[5]>isKs[3]) {
 	  if(debug_me) std::cout<<"Found a Ks"<<std::endl;
 	  isInV0[i] = true;
-	  isInV0[j] = true;
+	  isInV0[jj] = true;
 	  vtx.push_back(V0_vtx);
 	  pdgAbs.push_back(310);
 	  invM.push_back(V0_cand[0]);
@@ -732,7 +732,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
 	else if(V0_cand[1]>isLambda0[0] && V0_cand[1]<isLambda0[1] && V0_cand[4]>isLambda0[2] && V0_cand[5]>isLambda0[3]) {
 	  if(debug_me) std::cout<<"Found a Lambda0"<<std::endl;
 	  isInV0[i] = true;
-	  isInV0[j] = true;
+	  isInV0[jj] = true;
 	  vtx.push_back(V0_vtx);
 	  pdgAbs.push_back(3122);
 	  invM.push_back(V0_cand[1]);
@@ -742,7 +742,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
 	else if(V0_cand[2]>isLambda0[0] && V0_cand[2]<isLambda0[1] && V0_cand[4]>isLambda0[2] && V0_cand[5]>isLambda0[3]) {
 	  if(debug_me) std::cout<<"Found a Lambda0"<<std::endl;
 	  isInV0[i] = true;
-	  isInV0[j] = true;
+	  isInV0[jj] = true;
 	  vtx.push_back(V0_vtx);
 	  pdgAbs.push_back(3122);
 	  invM.push_back(V0_cand[2]);
@@ -754,7 +754,7 @@ VertexingUtils::FCCAnalysesV0 get_V0s_jet(ROOT::VecOps::RVec<edm4hep::Reconstruc
 	else if(V0_cand[3]<isGamma[1] && V0_cand[4]>isGamma[2] && V0_cand[5]>isGamma[3]) {
 	  if(debug_me) std::cout<<"Found a Photon coversion"<<std::endl;
 	  isInV0[i] = true;
-	  isInV0[j] = true;
+	  isInV0[jj] = true;
 	  vtx.push_back(V0_vtx);
 	  pdgAbs.push_back(22);
 	  invM.push_back(V0_cand[3]);

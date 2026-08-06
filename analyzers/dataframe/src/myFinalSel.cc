@@ -86,7 +86,7 @@ float get_ave(ROOT::VecOps::RVec<float> in,
 
 float get_min(ROOT::VecOps::RVec<float> in,
 			  ROOT::VecOps::RVec<int> ispv,
-			  int index){
+			  unsigned index){
   float min = 9999999.;
 
   for (size_t i = 0; i < in.size(); ++i){
@@ -98,7 +98,7 @@ float get_min(ROOT::VecOps::RVec<float> in,
 }
 float get_max(ROOT::VecOps::RVec<float> in,
 			  ROOT::VecOps::RVec<int> ispv,
-			  int index){
+			  unsigned index){
   float max = -9999999.;
 
   for (size_t i = 0; i < in.size(); ++i){
@@ -112,7 +112,7 @@ float get_max(ROOT::VecOps::RVec<float> in,
 
 float get_ave(ROOT::VecOps::RVec<float> in,
 			  ROOT::VecOps::RVec<int> ispv,
-			  int index){
+			  unsigned index){
 
   float ave=0.;
   float aven=0.;

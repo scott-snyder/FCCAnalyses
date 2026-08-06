@@ -301,7 +301,7 @@ float get_trackMom(edm4hep::TrackState &atrack) {
 
 FCCAnalysesVertex
 get_FCCAnalysesVertex(ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl,
-                      int index) {
+                      unsigned index) {
   FCCAnalysesVertex result;
   if (index < TheVertexColl.size())
     result = TheVertexColl.at(index);
@@ -326,7 +326,7 @@ get_VertexData(ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl) {
 }
 
 edm4hep::VertexData
-get_VertexData(ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl, int index) {
+get_VertexData(ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl, unsigned index) {
   edm4hep::VertexData result;
   if (index < TheVertexColl.size())
     result = TheVertexColl.at(index).vertex;
@@ -354,9 +354,9 @@ ROOT::VecOps::RVec<int> get_VertexRecoParticlesInd(
 
   ROOT::VecOps::RVec<int> result;
   ROOT::VecOps::RVec<int> indices_tracks = TheVertex.reco_ind;
-  for (int i = 0; i < indices_tracks.size(); i++) {
-    int tk_index = indices_tracks[i];
-    for (int j = 0; j < reco.size(); j++) {
+  for (size_t i = 0; i < indices_tracks.size(); i++) {
+    unsigned tk_index = indices_tracks[i];
+    for (size_t j = 0; j < reco.size(); j++) {
       auto &p = reco[j];
       if (p.tracks_begin == p.tracks_end)
         continue;
@@ -471,7 +471,7 @@ double get_invM_pairs(FCCAnalysesVertex vertex, double m1, double m2) {
 
   TLorentzVector p4_vtx;
   double m[2] = {m1, m2};
-  int nTr = p_tracks.size();
+  unsigned nTr = p_tracks.size();
 
   for (unsigned int i = 0; i < nTr; i++) {
     TLorentzVector p4_tr;
@@ -497,7 +497,7 @@ get_invM_pairs(ROOT::VecOps::RVec<FCCAnalysesVertex> vertices, double m1,
 
     TLorentzVector p4_vtx;
     double m[2] = {m1, m2};
-    int nTr = p_tracks.size();
+    unsigned nTr = p_tracks.size();
 
     for (unsigned int i = 0; i < nTr; i++) {
       TLorentzVector p4_tr;
@@ -939,7 +939,7 @@ get_relTheta_SV(ROOT::VecOps::RVec<FCCAnalysesVertex> vertices,
   ROOT::VecOps::RVec<double> result;
 
   unsigned int j = 0;
-  int nSV = nSV_jet[0];
+  unsigned nSV = nSV_jet[0];
   for (unsigned int i = 0; i < vertices.size(); i++) {
     auto &ivtx = vertices[i];
     TVector3 xyz(ivtx.vertex.position[0], ivtx.vertex.position[1],
@@ -966,7 +966,7 @@ get_relPhi_SV(ROOT::VecOps::RVec<FCCAnalysesVertex> vertices,
   ROOT::VecOps::RVec<double> result;
 
   unsigned int j = 0;
-  int nSV = nSV_jet[0];
+  unsigned nSV = nSV_jet[0];
   for (unsigned int i = 0; i < vertices.size(); i++) {
     auto &ivtx = vertices[i];
     TVector3 xyz(ivtx.vertex.position[0], ivtx.vertex.position[1],
@@ -1038,7 +1038,7 @@ std::vector<std::vector<edm4hep::TrackState>> get_tracksInJets(
   std::vector<std::vector<edm4hep::TrackState>> result;
   std::vector<edm4hep::TrackState> iJet_tracks;
 
-  int nJet = jets.size();
+  unsigned nJet = jets.size();
   //
   for (unsigned int j = 0; j < nJet; j++) {
 
@@ -1425,7 +1425,6 @@ ROOT::VecOps::RVec<ROOT::VecOps::RVec<TVector3>> get_position_SV(
   ROOT::VecOps::RVec<TVector3> i_result;
 
   for (unsigned int i = 0; i < vertices.size(); i++) {
-    ROOT::VecOps::RVec<TVector3> i_result;
     ROOT::VecOps::RVec<FCCAnalysesVertex> i_vertices = vertices.at(i);
     //
     for (auto &ivtx : i_vertices) {

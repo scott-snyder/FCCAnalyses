@@ -85,7 +85,7 @@ namespace VertexingUtils{
   int get_Nvertex( ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl );
 
   /// Retrieve a single FCCAnalyses vertex from the collection of vertex object
-  FCCAnalysesVertex get_FCCAnalysesVertex(ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl, int index );
+  FCCAnalysesVertex get_FCCAnalysesVertex(ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl, unsigned index );
 
   /// Retrieve the edm4hep::VertexData from the vertex object
   edm4hep::VertexData get_VertexData( FCCAnalysesVertex TheVertex ) ;
@@ -94,7 +94,7 @@ namespace VertexingUtils{
   ROOT::VecOps::RVec<edm4hep::VertexData> get_VertexData( ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl ) ;
 
   /// Retrieve a edm4hep::VertexData from the collection of vertex object at a given index
-  edm4hep::VertexData get_VertexData( ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl, int index);
+  edm4hep::VertexData get_VertexData( ROOT::VecOps::RVec<FCCAnalysesVertex> TheVertexColl, unsigned index);
 
   /// Retrieve the number of tracks from FCCAnalysesVertex
   int get_VertexNtrk( FCCAnalysesVertex TheVertex ) ;
