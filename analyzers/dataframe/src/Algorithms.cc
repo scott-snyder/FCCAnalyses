@@ -197,7 +197,7 @@ ROOT::VecOps::RVec<float> Algorithms::calculate_thrust::operator()(
 
   // Array to store x, y, z and magnitude squared of the particles.
   // 0 -- magnitude squared, 1 -- x, 2 -- y, 3 -- z
-  float pArr[nParticles][4];
+  std::vector<float[4]> pArr (nParticles);
   float pSum = 0.;
   for (size_t i = 0; i < nParticles; ++i) {
     pArr[i][1] = px[i];
@@ -487,7 +487,7 @@ JetClustering::FCCAnalysesJet jets_TwoHemispheres::operator() (
  float pz_minus=0;
  float e_minus=0;
 
- for ( int i=0; i < RP_costheta.size(); i++) {
+ for ( unsigned i=0; i < RP_costheta.size(); i++) {
      if ( RP_costheta[i] > 0 ) {
         constituents_JetPlus.push_back( i );
 	px_plus += RP_px[i];

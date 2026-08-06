@@ -51,8 +51,8 @@ namespace myUtils{
 
 
 
-  struct build_tau23pi {
-    build_tau23pi( float arg_masslow, float arg_masshigh, float arg_p, float arg_angle, bool arg_rho);
+  struct build_tau23pi_s {
+    build_tau23pi_s( float arg_masslow, float arg_masshigh, float arg_p, float arg_angle, bool arg_rho);
     float m_masslow=0.05;
     float m_masshigh=3.0;
     float m_p=1.;
@@ -217,15 +217,15 @@ namespace myUtils{
   bool isPV(edm4hep::ReconstructedParticleData recop,
 	    ROOT::VecOps::RVec<int> pvindex);
 
-  ROOT::VecOps::RVec<int> getMC_daughter(int daughterindex,
+  ROOT::VecOps::RVec<int> getMC_daughter(unsigned daughterindex,
 					 ROOT::VecOps::RVec<edm4hep::MCParticleData> in,
 					 ROOT::VecOps::RVec<int> ind);
 
-  ROOT::VecOps::RVec<int> getMC_parent(int parentindex,
+  ROOT::VecOps::RVec<int> getMC_parent(unsigned parentindex,
 				       ROOT::VecOps::RVec<edm4hep::MCParticleData> in,
 				       ROOT::VecOps::RVec<int> ind);
 
-  int getMC_parent(int parentindex,
+  int getMC_parent(unsigned parentindex,
 		   edm4hep::MCParticleData in,
 		   ROOT::VecOps::RVec<int> ind);
 
@@ -369,7 +369,7 @@ namespace myUtils{
 										       ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop);
 
   ROOT::VecOps::RVec<float> get_mass(ROOT::VecOps::RVec<ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData>> in,
-				     int index);
+				     unsigned index);
 
   ROOT::VecOps::RVec<float> get_px(ROOT::VecOps::RVec<ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData>> in,
 				   int index);
@@ -406,7 +406,6 @@ namespace myUtils{
 								ROOT::VecOps::RVec<float> thrust);
 
   int has_anglethrust_emin(ROOT::VecOps::RVec<float> angle);
-
 }//end NS myUtils
 
 }//end NS FCCAnalyses
