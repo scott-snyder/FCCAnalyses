@@ -1,8 +1,9 @@
 {
   "version": 5,
-  "prev": "836f50fcd2cc8b9fa3690c6560f34cc0c4751fa3",
-  "head": "ce83092feb28180dca15e71a208b98f53147043e",
-  "applied": [
+  "prev": "8d6b2187a5a9b9c137ecbf96e7ca6ce804ff14d3",
+  "head": "8a2684c8c0dd2f3ee7283a1edbd8e27c3d3b19f1",
+  "applied": [],
+  "unapplied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
@@ -12,7 +13,6 @@
     "cxx26",
     "include"
   ],
-  "unapplied": [],
   "hidden": [],
   "patches": {
     "clang": {
