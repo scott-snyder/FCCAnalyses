@@ -1,13 +1,14 @@
 {
   "version": 5,
-  "prev": "060946f9c2f6c5b4772ffdb5b5d2a68453b6113f",
-  "head": "a93804d129927bff0395ce49a8bfaf645c68a113",
-  "applied": [],
-  "unapplied": [
+  "prev": "0ecab6e21c65da13b21630f0bf2fb6c8c8ef91a0",
+  "head": "b8166fae26d4bbf22be4f81087856caf885b1039",
+  "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
-    "clang",
+    "clang"
+  ],
+  "unapplied": [
     "cxx23",
     "gcc15",
     "cxx26",
@@ -16,13 +17,13 @@
   "hidden": [],
   "patches": {
     "clang": {
-      "oid": "fe31aa63ae252142c6002340342921de0593a713"
+      "oid": "b8166fae26d4bbf22be4f81087856caf885b1039"
     },
     "cmakeverb": {
-      "oid": "53d94de3ac91a322fa28403b6f7e38925a214066"
+      "oid": "ee00f7fac5d95f430c812c39b9d42ae34d36457f"
     },
     "cmakewarn": {
-      "oid": "6c35f5f4dd3d833e0a7b7fc3d29c5df539d32184"
+      "oid": "a6b5d1435bdc5ecadb6e61263f6c4cc1303e611b"
     },
     "cxx23": {
       "oid": "47b7f4615b309909635f2e70f3226017b5effdf6"
@@ -37,7 +38,7 @@
       "oid": "ce83092feb28180dca15e71a208b98f53147043e"
     },
     "novdt": {
-      "oid": "accd12e8ffb1975ff01d97fdb0a18081689de7de"
+      "oid": "d7f8c6ab28cc1bbf54e2e20a2b53e20e117f501a"
     }
   }
 }
