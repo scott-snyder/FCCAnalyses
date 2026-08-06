@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <cmath>
 
 // EDM4hep
 #include "FCCAnalyses/VertexingUtils.h"
@@ -903,9 +904,9 @@ ROOT::VecOps::RVec<int> get_trueVertex(ROOT::VecOps::RVec<VertexingUtils::FCCAna
   for (size_t i = 0; i < vertex.size(); ++i) {
     ROOT::VecOps::RVec<int> mother_ind = vertex.at(i).mother_ind;
     for (size_t j = 0; j < mother_ind.size(); ++j) {
-      if (fabs(mc.at(mother_ind.at(j)).PDG)==mother){
+      if (std::abs(mc.at(mother_ind.at(j)).PDG)==mother){
 	for (size_t k = mc.at(mother_ind.at(j)).parents_begin; k < mc.at(mother_ind.at(j)).parents_end; ++k){
-	  if (fabs(mc.at(ind.at(k)).PDG)==grandmother) {
+	  if (std::abs(mc.at(ind.at(k)).PDG)==grandmother) {
 	    result.push_back(i);
 	    //std::cout <<"i ="<< i << "  j=" << j << "  k=" << k << "  mother PDG " << mc.at(mother_ind.at(j)).PDG
 	    //	      << "  gmother PDG " << mc.at(ind.at(k)).PDG<< std::endl;
@@ -1558,7 +1559,7 @@ PID(ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop,
   for (size_t i = 0; i < recind.size(); ++i) {
 
     //id a pion
-    if (fabs(mc.at(mcind.at(i)).PDG)==211){
+    if (std::abs(mc.at(mcind.at(i)).PDG)==211){
 #if edm4hep_VERSION > EDM4HEP_VERSION(0, 10, 5)
       recop.at(recind.at(i)).PDG = 211;
 #else
@@ -1571,7 +1572,7 @@ PID(ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop,
 					   pow(recop.at(recind.at(i)).mass,2));
     }
     //id a kaon
-    else if (fabs(mc.at(mcind.at(i)).PDG)==321){
+    else if (std::abs(mc.at(mcind.at(i)).PDG)==321){
 #if edm4hep_VERSION > EDM4HEP_VERSION(0, 10, 5)
       recop.at(recind.at(i)).PDG = 321;
 #else
@@ -1584,7 +1585,7 @@ PID(ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop,
 					   pow(recop.at(recind.at(i)).mass,2));
     }
     //id a proton
-    else if (fabs(mc.at(mcind.at(i)).PDG)==2212){
+    else if (std::abs(mc.at(mcind.at(i)).PDG)==2212){
 #if edm4hep_VERSION > EDM4HEP_VERSION(0, 10, 5)
       recop.at(recind.at(i)).PDG = 2212;
 #else
@@ -1597,7 +1598,7 @@ PID(ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop,
 					   pow(recop.at(recind.at(i)).mass,2));
     }
     //id an electron
-    else if (fabs(mc.at(mcind.at(i)).PDG)==11){
+    else if (std::abs(mc.at(mcind.at(i)).PDG)==11){
 #if edm4hep_VERSION > EDM4HEP_VERSION(0, 10, 5)
       recop.at(recind.at(i)).PDG = 11;
 #else
@@ -1610,7 +1611,7 @@ PID(ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop,
 					   pow(recop.at(recind.at(i)).mass,2));
     }
     //id an muon
-    else if (fabs(mc.at(mcind.at(i)).PDG)==13){
+    else if (std::abs(mc.at(mcind.at(i)).PDG)==13){
 #if edm4hep_VERSION > EDM4HEP_VERSION(0, 10, 5)
       recop.at(recind.at(i)).PDG = 13;
 #else
@@ -1697,7 +1698,7 @@ ROOT::VecOps::RVec<FCCAnalysesComposite2> build_tau23pi(ROOT::VecOps::RVec<Verte
       charge+=recop.at(r).charge;
     }
     if (is3pi==false){counter+=1; continue;}
-    if (fabs(charge)!=1){counter+=1; continue;}
+    if (std::abs(charge)!=1){counter+=1; continue;}
 
     FCCAnalysesComposite2 comp;
     comp.vertex = counter;
@@ -2035,7 +2036,7 @@ build_tau23pi::operator() (ROOT::VecOps::RVec<VertexingUtils::FCCAnalysesVertex>
     }
     if (is3pi==false){counter+=1; continue;}
     if (pcut==false){counter+=1; continue;}
-    if (fabs(charge)!=1){counter+=1; continue;}
+    if (std::abs(charge)!=1){counter+=1; continue;}
     if (m_rho && hasrho==false){counter+=1;continue;}
     if (angle>m_angle)continue;
 
