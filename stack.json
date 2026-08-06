@@ -1,6 +1,6 @@
 {
   "version": 5,
-  "prev": "9565551fb1ea7fa200af5dd804f9363c4f76cad1",
+  "prev": "f42737ff143b05d75ede2f8ac18db9f9d417f497",
   "head": "2406d6673eba668330a7760def119813c5fe16dc",
   "applied": [
     "novdt",
@@ -9,7 +9,7 @@
     "clang",
     "gcc15",
     "include",
-    "clangwrn2"
+    "clangwarn2"
   ],
   "unapplied": [],
   "hidden": [],
@@ -17,7 +17,7 @@
     "clang": {
       "oid": "91510d1783e9793a8e3b0e4c2c0a8ee084e9550a"
     },
-    "clangwrn2": {
+    "clangwarn2": {
       "oid": "2406d6673eba668330a7760def119813c5fe16dc"
     },
     "cmakeverb": {
