@@ -1,7 +1,7 @@
 {
   "version": 5,
-  "prev": "c813399d8fda38208d0efc88530c4c462e41c184",
-  "head": "3d19ffe043823449c0a3b912fa7453c00ddb82c6",
+  "prev": "6571e148bf37b51485b417348ac62ec922346282",
+  "head": "bec46c6cd1357fa3c407bb0872bd6aa4738a99f7",
   "applied": [
     "novdt",
     "cmakeverb",
@@ -9,7 +9,8 @@
     "clang",
     "gcc15",
     "include",
-    "clangwrn2"
+    "clangwrn2",
+    "refresh-temp"
   ],
   "unapplied": [],
   "hidden": [],
@@ -34,6 +35,9 @@
     },
     "novdt": {
       "oid": "d7f8c6ab28cc1bbf54e2e20a2b53e20e117f501a"
+    },
+    "refresh-temp": {
+      "oid": "bec46c6cd1357fa3c407bb0872bd6aa4738a99f7"
     }
   }
 }
