@@ -87,9 +87,7 @@ bool  filter_pdgID::operator() (ROOT::VecOps::RVec<edm4hep::MCParticleData> in) 
 get_EventPrimaryVertex::get_EventPrimaryVertex( int arg_genstatus) { m_genstatus = arg_genstatus; };
 TVector3 get_EventPrimaryVertex::operator() ( ROOT::VecOps::RVec<edm4hep::MCParticleData> in )  {
   TVector3 result(-1e12,-1e12,-1e12);
-  int i=0;
   for (auto & p: in) {
-     i++;
      if ( p.generatorStatus == m_genstatus ) {   // generator status code for the incoming particles of the hardest subprocess
        TVector3 res( p.vertex.x, p.vertex.y, p.vertex.z );
        result = res;
@@ -146,7 +144,6 @@ TLorentzVector get_EventPrimaryVertexP4::operator() ( ROOT::VecOps::RVec<edm4hep
 get_tree::get_tree(int arg_index) : m_index(arg_index) {};
 ROOT::VecOps::RVec<int> get_tree::operator() (ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind){
   ROOT::VecOps::RVec<int> result;
-  auto & particle = in[m_index];
 
   //for (unsigned j = in.at(i).parents_begin; j != in.at(i).parents_end; ++j){
   //  if
@@ -283,10 +280,10 @@ ROOT::VecOps::RVec<edm4hep::Vector3d> get_endPoint(ROOT::VecOps::RVec<edm4hep::M
   ROOT::VecOps::RVec<edm4hep::Vector3d> result;
   for (auto & p: in) {
     edm4hep::Vector3d vertex(1e12, 1e12, 1e12);  // a default value for stable particles
-    int db = p.daughters_begin ;
-    int de = p.daughters_end;
+    unsigned db = p.daughters_begin ;
+    unsigned de = p.daughters_end;
     if (db != de) { // particle unstable
-        int d1 = ind[db] ;   // first daughter
+        unsigned d1 = ind[db] ;   // first daughter
         if ( d1 >= 0 && d1 < in.size() ) {
             vertex = in.at(d1).vertex ;
         }
@@ -480,7 +477,7 @@ ROOT::VecOps::RVec<int> get_parentid(ROOT::VecOps::RVec<int> mcind, ROOT::VecOps
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 // returns one MCParticle selected by its index in the particle block
-edm4hep::MCParticleData sel_byIndex( int idx, ROOT::VecOps::RVec<edm4hep::MCParticleData> in) {
+edm4hep::MCParticleData sel_byIndex( unsigned idx, ROOT::VecOps::RVec<edm4hep::MCParticleData> in) {
     edm4hep::MCParticleData dummy;
     if ( idx >= 0 && idx < in.size() ) {
            return in.at(idx) ;
@@ -494,7 +491,7 @@ edm4hep::MCParticleData sel_byIndex( int idx, ROOT::VecOps::RVec<edm4hep::MCPart
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
-std::vector<int> get_list_of_stable_particles_from_decay( int i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
+std::vector<int> get_list_of_stable_particles_from_decay( unsigned i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
 
   std::vector<int> res;
   // i = index of a MC particle in the Particle block
@@ -528,7 +525,7 @@ std::vector<int> get_list_of_stable_particles_from_decay( int i, ROOT::VecOps::R
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
-std::vector<int> get_list_of_particles_from_decay(int i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
+std::vector<int> get_list_of_particles_from_decay(unsigned i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
 
   std::vector<int> res;
 
@@ -661,7 +658,7 @@ ROOT::VecOps::RVec<int>  get_indices::operator() ( ROOT::VecOps::RVec<edm4hep::M
 
    ROOT::VecOps::RVec<int>  result;
 
-   for ( int imother =0; imother < in.size(); imother ++){
+   for ( size_t imother =0; imother < in.size(); imother ++){
      int pdg = in[imother].PDG ;
      bool found_a_mother = false;
      if ( ! m_chargeConjugateMother ) found_a_mother = ( pdg == m_pdg_mother );
@@ -692,7 +689,7 @@ ROOT::VecOps::RVec<float> AngleBetweenTwoMCParticles( ROOT::VecOps::RVec<edm4hep
         return result;
   }
 
-  for (int i=0; i < p1.size(); i++) {
+  for (size_t i=0; i < p1.size(); i++) {
      TVector3 q1( p1[i].momentum.x, p1[i].momentum.y, p1[i].momentum.z );
      TVector3 q2( p2[i].momentum.x, p2[i].momentum.y, p2[i].momentum.z );
      float delta = fabs( q1.Angle( q2 ) ) ;
@@ -765,7 +762,7 @@ int get_lepton_origin(const edm4hep::MCParticleData &p,
 }
 
 
-int get_lepton_origin(int index,
+int get_lepton_origin(unsigned index,
                       const ROOT::VecOps::RVec<edm4hep::MCParticleData> &in,
                       const ROOT::VecOps::RVec<int> &ind){
   if ( index < 0 || index >= in.size() ) return -1;

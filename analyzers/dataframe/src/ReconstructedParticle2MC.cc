@@ -272,7 +272,7 @@ selRP_PDG::operator() (ROOT::VecOps::RVec<int> recind,
 
   std::vector<edm4hep::ReconstructedParticleData> result;
 
-  for (int i=0; i<recind.size();i++) {
+  for (size_t i=0; i<recind.size();i++) {
       int reco_idx = recind.at(i);
       int mc_idx = mcind.at(i);
       int pdg = mc.at(mc_idx).PDG ;
@@ -296,7 +296,7 @@ selRP_PDG_index::operator() (ROOT::VecOps::RVec<int> recind,
 
   ROOT::VecOps::RVec<int> result;
 
-  for (int i=0; i<recind.size();i++) {
+  for (size_t i=0; i<recind.size();i++) {
       int reco_idx = recind.at(i);
       int mc_idx = mcind.at(i);
       int pdg = mc.at(mc_idx).PDG ;
@@ -323,7 +323,7 @@ selRP_ChargedHadrons (ROOT::VecOps::RVec<int> recind,
 
   std::vector<edm4hep::ReconstructedParticleData> result;
 
-  for (int i=0; i<recind.size();i++) {
+  for (size_t i=0; i<recind.size();i++) {
       int reco_idx = recind.at(i);
       int mc_idx = mcind.at(i);
       int pdg = mc.at(mc_idx).PDG ;
@@ -360,7 +360,7 @@ selRP_matched_to_list( ROOT::VecOps::RVec<int>  mcParticles_indices,
 
     // is this MC particle associated with a Reco particle :
     bool found = false;
-    for (int i=0; i<recind.size();i++) {
+    for (size_t i=0; i<recind.size();i++) {
       int reco_idx = recind.at(i);
       int mc_idx = mcind.at(i);
       if ( mc_idx == idx ) {
@@ -385,14 +385,14 @@ selRP_matched_to_list( ROOT::VecOps::RVec<int>  mcParticles_indices,
 
 // -------------------------------------------------------------------------------------------------
 
-int getTrack2MC_index (int track_index,
+int getTrack2MC_index (unsigned track_index,
 						 					ROOT::VecOps::RVec<int> recind,
 						 ROOT::VecOps::RVec<int> mcind,
 						 ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> reco) {
   int mc_index = -1;
 
-      for (int i=0; i<recind.size();i++) {
-          int reco_idx = recind.at(i);
+      for (size_t i=0; i<recind.size();i++) {
+          unsigned reco_idx = recind.at(i);
           // keep only charged particles
           if ( reco.at( reco_idx ).charge == 0 ) continue;
           mc_index = mcind.at(i);

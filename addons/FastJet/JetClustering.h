@@ -209,7 +209,6 @@ namespace JetClustering {
     int _recombination;  ///< E_scheme=0, pt_scheme=1, pt2_scheme=2, Et_scheme=3, Et2_scheme=4, BIpt_scheme=5, BIpt2_scheme=6, E0_scheme=10, p_scheme=11
     //fastjet::JetAlgorithm _jetAlgorithm {fastjet::JetAlgorithm::undefined_jet_algorithm};///<internal jet algorithm
     fastjet::JadePlugin* _jetAlgorithm;
-    fastjet::RecombinationScheme _recombScheme;  ///<internal recombination scheme
     fastjet::ClusterSequence _cs;                ///<internal clustering sequence
     fastjet::JetDefinition _def;                 ///<internal jetdefinition sequence
   };
