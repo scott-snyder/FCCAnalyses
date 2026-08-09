@@ -283,8 +283,8 @@ ROOT::VecOps::RVec<edm4hep::Vector3d> get_endPoint(ROOT::VecOps::RVec<edm4hep::M
     unsigned db = p.daughters_begin ;
     unsigned de = p.daughters_end;
     if (db != de) { // particle unstable
-        unsigned d1 = ind[db] ;   // first daughter
-        if ( d1 >= 0 && d1 < in.size() ) {
+        int d1 = ind[db] ;   // first daughter
+        if ( d1 >= 0 && d1 < static_cast<int>(in.size()) ) {
             vertex = in.at(d1).vertex ;
         }
     }
@@ -477,9 +477,9 @@ ROOT::VecOps::RVec<int> get_parentid(ROOT::VecOps::RVec<int> mcind, ROOT::VecOps
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 // returns one MCParticle selected by its index in the particle block
-edm4hep::MCParticleData sel_byIndex( unsigned idx, ROOT::VecOps::RVec<edm4hep::MCParticleData> in) {
+edm4hep::MCParticleData sel_byIndex( int idx, ROOT::VecOps::RVec<edm4hep::MCParticleData> in) {
     edm4hep::MCParticleData dummy;
-    if ( idx >= 0 && idx < in.size() ) {
+    if ( idx >= 0 && idx < static_cast<int>(in.size()) ) {
            return in.at(idx) ;
     }
     else {
@@ -491,7 +491,7 @@ edm4hep::MCParticleData sel_byIndex( unsigned idx, ROOT::VecOps::RVec<edm4hep::M
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
-std::vector<int> get_list_of_stable_particles_from_decay( unsigned i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
+std::vector<int> get_list_of_stable_particles_from_decay( int i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
 
   std::vector<int> res;
   // i = index of a MC particle in the Particle block
@@ -501,7 +501,7 @@ std::vector<int> get_list_of_stable_particles_from_decay( unsigned i, ROOT::VecO
   // returns a vector with the indices (in the Particle block) of the stable daughters of the particle i,
   // from the complete decay chain.
 
-  if ( i < 0 || i >= in.size() ) return res;
+  if ( i < 0 || i >= static_cast<int>(in.size()) ) return res;
 
   int db = in.at(i).daughters_begin ;
   int de = in.at(i).daughters_end;
@@ -525,7 +525,7 @@ std::vector<int> get_list_of_stable_particles_from_decay( unsigned i, ROOT::VecO
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
-std::vector<int> get_list_of_particles_from_decay(unsigned i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
+std::vector<int> get_list_of_particles_from_decay(int i, ROOT::VecOps::RVec<edm4hep::MCParticleData> in, ROOT::VecOps::RVec<int> ind) {
 
   std::vector<int> res;
 
@@ -535,7 +535,7 @@ std::vector<int> get_list_of_particles_from_decay(unsigned i, ROOT::VecOps::RVec
 
   // returns a vector with the indices (in the Particle block) of the daughters of the particle i
 
-  if ( i < 0 || i >= in.size() ) return res;
+  if ( i < 0 || i >= static_cast<int>(in.size()) ) return res;
 
   int db = in.at(i).daughters_begin ;
   int de = in.at(i).daughters_end;
@@ -762,10 +762,10 @@ int get_lepton_origin(const edm4hep::MCParticleData &p,
 }
 
 
-int get_lepton_origin(unsigned index,
+int get_lepton_origin(int index,
                       const ROOT::VecOps::RVec<edm4hep::MCParticleData> &in,
                       const ROOT::VecOps::RVec<int> &ind){
-  if ( index < 0 || index >= in.size() ) return -1;
+  if ( index < 0 || index >= static_cast<int>(in.size()) ) return -1;
   edm4hep::MCParticleData p = in[index];
   return get_lepton_origin( p, in, ind );
 }

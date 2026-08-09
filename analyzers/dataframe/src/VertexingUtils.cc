@@ -1046,7 +1046,7 @@ std::vector<std::vector<edm4hep::TrackState>> get_tracksInJets(
 
     for (unsigned int ip : i_jetconsti) {
       auto &p = recoparticles[ip];
-      if (p.tracks_begin >= 0 && p.tracks_begin < thetracks.size())
+      if (/*p.tracks_begin >= 0 &&*/ p.tracks_begin < thetracks.size())
         iJet_tracks.push_back(thetracks.at(p.tracks_begin));
     }
 

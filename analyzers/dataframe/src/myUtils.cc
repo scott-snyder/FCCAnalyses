@@ -1977,9 +1977,9 @@ ROOT::VecOps::RVec<FCCAnalysesComposite2> build_Bd2MuMu(ROOT::VecOps::RVec<Verte
   return result;
 }
 
-build_tau23pi::build_tau23pi(float arg_masslow, float arg_masshigh, float arg_p, float arg_angle, bool arg_rho):m_masslow(arg_masslow),m_masshigh(arg_masshigh),m_p(arg_p),m_angle(arg_angle),m_rho(arg_rho){};
+build_tau23pi_s::build_tau23pi_s(float arg_masslow, float arg_masshigh, float arg_p, float arg_angle, bool arg_rho):m_masslow(arg_masslow),m_masshigh(arg_masshigh),m_p(arg_p),m_angle(arg_angle),m_rho(arg_rho){};
 ROOT::VecOps::RVec<FCCAnalysesComposite2>
-build_tau23pi::operator() (ROOT::VecOps::RVec<VertexingUtils::FCCAnalysesVertex> vertex,
+build_tau23pi_s::operator() (ROOT::VecOps::RVec<VertexingUtils::FCCAnalysesVertex> vertex,
 				    ROOT::VecOps::RVec<edm4hep::ReconstructedParticleData> recop){
 
   ROOT::VecOps::RVec<FCCAnalysesComposite2> result;
