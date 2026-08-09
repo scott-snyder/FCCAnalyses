@@ -2,6 +2,9 @@
 add_executable(integration_low_level_edm4hep
                ${CMAKE_SOURCE_DIR}/tests/integration/low_level_edm4hep.cxx
 )
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+  set_target_properties(integration_low_level_edm4hep PROPERTIES COMPILE_FLAGS "-Wno-array-bounds")
+endif()
 target_link_libraries(integration_low_level_edm4hep ROOT::ROOTDataFrame
                                                     podio::podioDataSource
                                                     EDM4HEP::edm4hep
