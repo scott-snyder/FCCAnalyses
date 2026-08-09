@@ -1,7 +1,7 @@
 {
   "version": 5,
-  "prev": "f42737ff143b05d75ede2f8ac18db9f9d417f497",
-  "head": "2406d6673eba668330a7760def119813c5fe16dc",
+  "prev": "aee2ba85463087b2384f8cce95d720abf3d313fc",
+  "head": "53c9a062a6c9689941fbd66e9d1a0252925a0b66",
   "applied": [
     "novdt",
     "cmakeverb",
@@ -9,7 +9,8 @@
     "clang",
     "gcc15",
     "include",
-    "clangwarn2"
+    "clangwarn2",
+    "gcc16"
   ],
   "unapplied": [],
   "hidden": [],
@@ -28,6 +29,9 @@
     },
     "gcc15": {
       "oid": "a484092fe2388a324697ba43464f0184c15ff11e"
+    },
+    "gcc16": {
+      "oid": "53c9a062a6c9689941fbd66e9d1a0252925a0b66"
     },
     "include": {
       "oid": "319537dcc430bce72d15e1418be12e8bb2bce1dc"

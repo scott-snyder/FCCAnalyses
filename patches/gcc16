@@ -1,0 +1,6 @@
+Bottom: 7b1a0c81826f9174245b3fc175bf4b8ed9a3e380
+Top:    7b1a0c81826f9174245b3fc175bf4b8ed9a3e380
+Author: sss <sss@karma>
+Date:   2026-08-09 12:22:32 -0400
+
+Suppress gcc16 false-positive warning.
