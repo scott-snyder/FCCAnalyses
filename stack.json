@@ -1,14 +1,13 @@
 {
   "version": 5,
-  "prev": "d53bf7197d1a790f2fa34d995ab409a859789ae2",
-  "head": "03c5a2fe567c033d4e355b8b17cfc8fc6ae14e8e",
+  "prev": "d2096d1472ca51e9fd16a959eb4188d257e5fc93",
+  "head": "45b559cbe5abda13be308122dec2c6b521ec31d8",
   "applied": [
     "novdt",
     "cmakeverb",
     "cmakewarn",
     "clang",
     "gcc15",
-    "include",
     "clangwarn2",
     "gcc16"
   ],
@@ -19,7 +18,7 @@
       "oid": "3211ddcef63a4a1843a8b5c1b82f4852ffcd4958"
     },
     "clangwarn2": {
-      "oid": "f3bdf0d0dec322fef742fd2680c9771fe7bb0dc0"
+      "oid": "d760d41303b477a67f35a1265af464999cebf67f"
     },
     "cmakeverb": {
       "oid": "83bfde63799836cab647f164338d49f64328f1fd"
@@ -31,10 +30,7 @@
       "oid": "d46229c313bf960727821d4688e65ac031a4ac52"
     },
     "gcc16": {
-      "oid": "03c5a2fe567c033d4e355b8b17cfc8fc6ae14e8e"
-    },
-    "include": {
-      "oid": "f06c3b3a0c811924cbcf7df45e131a12b9a9e784"
+      "oid": "45b559cbe5abda13be308122dec2c6b521ec31d8"
     },
     "novdt": {
       "oid": "93ebf076887ecf48efbd3695eb24182d7941e18c"
