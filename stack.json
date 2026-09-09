@@ -1,7 +1,7 @@
 {
   "version": 5,
-  "prev": "5b614fdbef3bea7b2e8d4f460414338e02b98cbb",
-  "head": "76de84364b9bc32e8c2faa70ee2e1b40e1e1cadc",
+  "prev": "d53bf7197d1a790f2fa34d995ab409a859789ae2",
+  "head": "03c5a2fe567c033d4e355b8b17cfc8fc6ae14e8e",
   "applied": [
     "novdt",
     "cmakeverb",
@@ -10,8 +10,7 @@
     "gcc15",
     "include",
     "clangwarn2",
-    "gcc16",
-    "refresh-temp"
+    "gcc16"
   ],
   "unapplied": [],
   "hidden": [],
@@ -20,7 +19,7 @@
       "oid": "3211ddcef63a4a1843a8b5c1b82f4852ffcd4958"
     },
     "clangwarn2": {
-      "oid": "eaf909bb0c6d77140f33a087843d63050d015dad"
+      "oid": "f3bdf0d0dec322fef742fd2680c9771fe7bb0dc0"
     },
     "cmakeverb": {
       "oid": "83bfde63799836cab647f164338d49f64328f1fd"
@@ -32,16 +31,13 @@
       "oid": "d46229c313bf960727821d4688e65ac031a4ac52"
     },
     "gcc16": {
-      "oid": "fd909b24a29a486f8dc8aa702d0f1628238a83e7"
+      "oid": "03c5a2fe567c033d4e355b8b17cfc8fc6ae14e8e"
     },
     "include": {
       "oid": "f06c3b3a0c811924cbcf7df45e131a12b9a9e784"
     },
     "novdt": {
       "oid": "93ebf076887ecf48efbd3695eb24182d7941e18c"
-    },
-    "refresh-temp": {
-      "oid": "76de84364b9bc32e8c2faa70ee2e1b40e1e1cadc"
     }
   }
 }
