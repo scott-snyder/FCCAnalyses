@@ -400,7 +400,6 @@ ROOT::VecOps::RVec<edm4hep::TrackerHit3DData> SmearedTracksTOF::operator()(
   // state" out of the MC particle and regenerates a new value of the dNdx
 
   ROOT::VecOps::RVec<edm4hep::TrackerHit3DData> result;
-  edm4hep::TrackerHit3DData dummy;
 
   int ntracks = length.size();
   int nhits = trackerhits.size(); // 3x size of tracks since 3 hits per track
@@ -411,7 +410,6 @@ ROOT::VecOps::RVec<edm4hep::TrackerHit3DData> SmearedTracksTOF::operator()(
   float c_light = 2.99792458e+8;
   float mm_to_sec = 1e-03 / c_light;
 
-  edm4hep::TrackerHit3DData thits_0, thits_1, thits_2;
   edm4hep::TrackerHit3DData smeared_thits_0, smeared_thits_1, smeared_thits_2;
 
   for (int itrack = 0; itrack < ntracks; itrack++) {
